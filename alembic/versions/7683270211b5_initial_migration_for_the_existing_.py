@@ -33,7 +33,7 @@ def upgrade() -> None:
         sa.Column('title', sa.String(), nullable=False),
         sa.Column('content', sa.Boolean(), server_default='TRUE', nullable=False),
         sa.Column('created_at', sa.TIMESTAMP(timezone=True), server_default=sa.text('now()'), nullable=False),
-        sa.Column('owner_id', sa.Integer(), sa.ForeignKey('user.id', ondelete='CASCADE'), nullable=False) 
+        sa.Column('owner_id', sa.Integer(), sa.ForeignKey('users.id', ondelete='CASCADE'), nullable=False) 
     )
 
     op.create_table(
